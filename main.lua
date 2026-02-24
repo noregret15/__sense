@@ -32,7 +32,7 @@ local Library = {
     FontColor = Color3.fromRGB(255, 190, 190);
     MainColor = Color3.fromRGB(15, 15, 15);
     BackgroundColor = Color3.fromRGB(8, 8, 8);
-    AccentColor = Color3.fromRGB(255, 50, 50);
+    AccentColor = Color3.fromRGB(0, 50, 50);
     OutlineColor = Color3.fromRGB(255, 0, 0);
     RiskColor = Color3.fromRGB(110, 60, 60),
 
@@ -109,6 +109,12 @@ function Library:SafeCallback(f, ...)
         end;
 
         return Library:Notify(event:sub(i + 1), 3);
+    end;
+end;
+
+function Library:AttemptSave()
+    if Library.SaveManager then
+        Library.SaveManager:Save();
     end;
 end;
 
